@@ -3,7 +3,7 @@
  * Víctor Adrián García Galván
  * A01713062
  * 22/05/2025
- * versión : 1
+ * versión : 2
  * Esta clase defina objeto de tipo Paciente que contiene las clases heredadas
  * Normal, Edema y Amputacion
  */
@@ -54,8 +54,8 @@ class Paciente {
     float indice_cc();
 
     //Métodos que se sobreescribirán
-    float indice_mc();
-    std::string conv_str();
+    virtual float indice_mc(); //Definimos como virtual para polimorfismo
+    virtual std::string conv_str();
 };
 
 /**
@@ -118,7 +118,7 @@ float Normal::indice_mc(){
  */
 std::string Normal::conv_str(){
   std::stringstream ss;
-  ss <<"Paciente Estandar || " << nombre << "\nEdad -> " << edad << "\nPeso -> "
+  ss <<"\nPaciente Estandar || " << nombre << "\nEdad -> " << edad << "\nPeso -> "
   << peso << "\nAltura -> " << altura << "\nCintura -> " << cintura <<
   "\nCadera -> "<< cadera;
   return ss.str();
@@ -181,7 +181,7 @@ float Edema::indice_mc(){
  */
 std::string Edema::conv_str(){
   std::stringstream ss;
-  ss<<"Paciente con Edema || " << nombre << "\nEdad -> " << edad << "\nPeso -> "
+  ss<<"\nPaciente con Edema || " << nombre << "\nEdad -> " << edad <<"\nPeso -> "
   << peso << "\nAltura -> " << altura << "\nCintura -> " << cintura <<
   "\nCadera -> "<< cadera << "\nTipo de Edema -> " << tipo_edema;
   return ss.str();
@@ -253,7 +253,7 @@ float Amputacion::indice_mc(float peso_ajustado){
  */
 std::string Amputacion::conv_str(){
   std::stringstream ss;
-  ss<<"Paciente con Amputacion || " << nombre << "\nEdad -> " << edad <<
+  ss<<"\nPaciente con Amputacion || " << nombre << "\nEdad -> " << edad <<
   "\nPeso -> " << peso << "\nAltura -> " << altura << "\nCintura -> "
   << cintura << "\nCadera -> "<< cadera <<"\nTipo de Amputacion -> "<<tipo_ampu;
   return ss.str();
