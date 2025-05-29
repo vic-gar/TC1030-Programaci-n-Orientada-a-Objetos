@@ -22,32 +22,31 @@
 #include <iostream> //Para imprimir
 #include <string>
 #include "Paciente.h" // Objetos de mi proyecto
+#include "Historial.h"
 
 int main(){
+  Historial historial(6); //Declaramos un historial con capacidad de 6 pacientes
 
-  float peso_aj;
+  //Creación de objetos ejemplo para el programa
+  historial.creaPacientesEjemplos();
 
-  // Ejemplos de objetos
+  //Agregamos pacientes al Historial (posteriormente será indicado por el usuario)
+  //Creación dinámica de objetos de diferentes tipos
+  Paciente* normal2 = new Normal("Victor", 20, 68.2, 1.78, 69, 72);
+  Paciente* edema2 = new Edema("Jorge", 53, 85, 1.83, 88, 92, "Tobillo");
+  Paciente* amputacion2 = new Amputacion("Jessica", 37, 67, 1.63, 52, 60, "Pierna");
 
-  //Objeto de la Clase Normal
-  Normal paciente_1("Jose Miguel", 37, 73.3, 1.75, 73, 69);
-  std::cout << paciente_1.conv_str() << std::endl;
-  std::cout << "Indice Cintura Cadera: " << paciente_1.indice_cc() << std::endl;
-  std::cout << "Indice Masa Corporal: " << paciente_1.indice_mc() << "\n" << std::endl;
+  // Agregamos pacientes al historial
+  historial.agregaPaciente(normal2);
+  historial.agregaPaciente(edema2);
+  historial.agregaPaciente(amputacion2);
 
-  //Objeto de la Clase Edema
-  Edema paciente_2("Josefina", 48, 68.1, 1.62, 68, 72, "Raiz Pierna");
-  std::cout << paciente_2.conv_str() << std::endl;
-  std::cout << "Indice Cintura Cadera: " << paciente_2.indice_cc() << std::endl;
-  std::cout << "Indice Masa Corporal: " << paciente_2.indice_mc() << "\n" << std::endl;
+  //Mostramos a las personas en el historial
+  historial.mostrarPacientes();
 
-  //Objeto de la Clase Amputacion
-  Amputacion paciente_3("Guadalupe", 62, 55.8, 1.52, 50, 55, "Pierna");
-  peso_aj = paciente_3.calc_peso_ajustado();
-  std::cout << paciente_3.conv_str() << std::endl;
-  std::cout << "Indice Cintura Cadera: " << paciente_3.indice_cc() << std::endl;
-  std::cout << "Peso ajustado: " << peso_aj << std::endl;
-  std::cout << "Indice Masa Corporal: " << paciente_3.indice_mc(peso_aj) << "\n" << std::endl;
+  //Mostramos los indices de cada paciente que se encuentra en el historial
+  historial.mostrarIMC();
+  historial.mostrarICC();
 
   return 0;
 }
