@@ -30,8 +30,7 @@ int main(){
   //Creación de objetos ejemplo para el programa
   historial.creaPacientesEjemplos();
 
-  //Agregamos pacientes al Historial (posteriormente será indicado por el usuario)
-  //Creación dinámica de objetos de diferentes tipos
+  //Agregamos pacientes al Historial. Creación dinámica de objetos de diferentes tipos
   Paciente* normal2 = new Normal("Victor", 20, 68.2, 1.78, 69, 72);
   Paciente* edema2 = new Edema("Jorge", 53, 85, 1.83, 88, 92, "Tobillo");
   Paciente* amputacion2 = new Amputacion("Jessica", 37, 67, 1.63, 52, 60, "Pierna");
