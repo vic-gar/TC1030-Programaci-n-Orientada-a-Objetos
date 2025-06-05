@@ -13,6 +13,8 @@
 
  #include <string>
  #include <sstream>
+ #include <iostream>
+ #include <iomanip>
 
  #include "Paciente.h" //Biblioteca con mis objetos
 
@@ -31,7 +33,7 @@ class Historial {
     void mostrarICC();
 };
 
-/* Constructor de la clase Histroial
+/* Constructor de la clase Historial
 * Inicializa el arreglo de Pacientes donde llevaremos el
 * conteo de los pacientes dependiendo del numero de pacientes
 * que se indiquen.
@@ -67,8 +69,7 @@ void Historial::agregaPaciente(Paciente* paciente){
     pacientes[contador] = paciente;//Se agrega el puntero del paciente al arreglo
     contador++;
   } else {
-    std::cout << "Llegaste al limite de Pacientes disponibles. Para
-    continuar necesitas la version Pro" << std::endl;
+    std::cout << "Llegaste al limite de Pacientes disponibles. Para continuar necesitas la version Pro" << std::endl;
   }
 }
 
@@ -77,7 +78,9 @@ void Historial::agregaPaciente(Paciente* paciente){
  * que tipo de paciente son.
  */
 void Historial::mostrarPacientes(){
-  std::cout << "\nPacientes en el Historial Clinico" << std::endl;
+  std::cout << "\n==========================================" << std::endl;
+  std::cout << "Pacientes en el Historial Clinico" << std::endl;
+  std::cout << "==========================================" << std::endl;
   for (int i = 0; i < contador; i++){
     std::cout << pacientes[i] -> conv_str() << std::endl;
   }
@@ -88,10 +91,12 @@ void Historial::mostrarPacientes(){
  * tipo de paciente son.
  */
 void Historial::mostrarIMC(){
-  std::cout << "\nIndice Masa Corporal de cada Paciente\n" << std::endl;
+  std::cout << "\n==========================================" << std::endl;
+  std::cout << "Indice Masa Corporal de cada Paciente" << std::endl;
+  std::cout << "==========================================\n" << std::endl;
   for (int i = 0; i < contador; i++){
-    std::cout << pacientes[i] -> get_nombre() << ":" <<
-    pacientes[i] -> indice_mc() << std::endl;
+    std::cout << pacientes[i] -> get_nombre() << ":" << std::fixed <<
+    std::setprecision(2) << pacientes[i] -> indice_mc() << std::endl;
   }
 }
 
@@ -100,10 +105,12 @@ void Historial::mostrarIMC(){
  * tipo de paciente son.
  */
 void Historial::mostrarICC(){
-  std::cout << "\nIndice Cintura Cadera de cada Paciente\n" << std::endl;
+  std::cout << "\n==========================================" << std::endl;
+  std::cout << "Indice Cintura Cadera de cada Paciente" << std::endl;
+  std::cout << "==========================================\n" << std::endl;
   for (int i = 0; i < contador; i++){
-    std::cout << pacientes[i] -> get_nombre() << ":" <<
-    pacientes[i] -> indice_cc() << std::endl;
+    std::cout << pacientes[i] -> get_nombre() << ":" << std::fixed <<
+    std::setprecision(2) << pacientes[i] -> indice_cc() << std::endl;
   }
 }
 
