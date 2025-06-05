@@ -14,7 +14,7 @@
 #include <string>
 #include <sstream>
 
-//Declaracion de clase Paciente
+//Declaracion de clase abstracta Paciente
 class Paciente {
   protected:
     std::string nombre;
@@ -54,8 +54,8 @@ class Paciente {
     float indice_cc();
 
     //Métodos que se sobreescribirán
-    virtual float indice_mc(); //Definimos como virtual para polimorfismo
-    virtual std::string conv_str();
+    virtual float indice_mc() = 0; //Virtual y Metodo de clase abstracta
+    virtual std::string conv_str() = 0;
 };
 
 /**
@@ -66,31 +66,6 @@ class Paciente {
 float Paciente::indice_cc(){
   return cintura/cadera;
 }
-
-/**
-* indice_mc divide el valor del peso entre la altura al cuadrado
-*
-* @return float con el resultado de la operación
-*/
-float Paciente::indice_mc(){
-  return peso/(altura*altura);
-}
-
-/**
- * conv_str convierte a atributos a string.
- *
- * concatena todos los valores de los atributos en un string para ser impreso
- *
- * @return string con los valores y texto concatenado.
- */
-std::string Paciente::conv_str(){
-  std::stringstream ss;
-  ss << nombre << ": Edad -> " << edad << ", Peso -> " << peso <<
-  ", Altura -> " << altura << ", Cintura -> " << cintura << ", Cadera -> "<<
-  cadera << "\n";
-  return ss.str();
-}
-
 
 
 //Declaracion de clase Normal que hereda de Paciente
@@ -207,7 +182,7 @@ class Amputacion: public Paciente {
     }
     float calc_peso_ajustado();
     void set_peso(float );
-    float indice_mc(float );
+    float indice_mc();
     std::string conv_str();
 };
 
@@ -239,8 +214,8 @@ float Amputacion::calc_peso_ajustado(){
 * Método que utiliza sobrecarga para calcular el Indice de masa Corporal del
 * paciente
 */
-float Amputacion::indice_mc(float peso_ajustado){
-  return peso_ajustado/(altura*altura);
+float Amputacion::indice_mc(){
+  return calc_peso_ajustado()/(altura*altura);
 }
 
 /**
