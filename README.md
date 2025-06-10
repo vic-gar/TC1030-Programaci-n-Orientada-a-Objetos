@@ -5,7 +5,7 @@ El proyecto busca ser una plataforma que ayude a un profesional en nutrición a 
 ## Función 
 El programa permite agregar nuevos pacientes y color sus datos, así como calcular su ínice de masa corporal y su índice cintura cadera. Dando los datos para la interpretación del profesional de una forma más eficiente. 
 
-![Diagrama de Clases del proyecto](Diagrama_de_clases.png)
+![Diagrama de Clases del proyecto](Diagrama_de_Clases.png)
 
 ## Consideraciones
 El programa solo corre en la consola y esta hecho con c++ standard por lo que corre en todos los sistemas operativos
