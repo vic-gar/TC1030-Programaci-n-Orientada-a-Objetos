@@ -28,7 +28,7 @@ class Paciente {
     //Constructores
     Paciente(): nombre(""), edad(0), peso(0.0), altura(0.0), cintura(0.0),
     cadera(0.0) {};
-    Paciente(std::string nom, int ed, float pes, float alt, float cin, float cad):
+    Paciente(std::string nom, int ed,float pes,float alt, float cin, float cad):
     nombre(nom), edad(ed), peso(pes), altura(alt), cintura(cin), cadera(cad){};
 
     //Se declaran los métodos de la clase Paciente
@@ -93,7 +93,7 @@ float Normal::indice_mc(){
  */
 std::string Normal::conv_str(){
   std::stringstream ss;
-  ss <<"\nPaciente Estandar || " << nombre << "\nEdad -> " << edad << "\nPeso -> "
+  ss <<"\nPaciente Estandar || "<< nombre << "\nEdad -> "<< edad << "\nPeso -> "
   << peso << "\nAltura -> " << altura << "\nCintura -> " << cintura <<
   "\nCadera -> "<< cadera;
   return ss.str();
@@ -156,7 +156,7 @@ float Edema::indice_mc(){
  */
 std::string Edema::conv_str(){
   std::stringstream ss;
-  ss<<"\nPaciente con Edema || " << nombre << "\nEdad -> " << edad <<"\nPeso -> "
+  ss<<"\nPaciente con Edema || "<< nombre << "\nEdad -> " << edad <<"\nPeso -> "
   << peso << "\nAltura -> " << altura << "\nCintura -> " << cintura <<
   "\nCadera -> "<< cadera << "\nTipo de Edema -> " << tipo_edema;
   return ss.str();
@@ -172,7 +172,7 @@ class Amputacion: public Paciente {
   public:
     //Declaramos los constructores de la clase Amputacion
     Amputacion(): Paciente("", 0, 0.0, 0.0, 0.0, 0.0){};
-    Amputacion(std::string nom, int ed, float pes, float alt, float cin, float cad,
+    Amputacion(std::string nom, int ed,float pes,float alt,float cin, float cad,
     std::string tip_am): Paciente(nom, ed, pes, alt, cin, cad),
     tipo_ampu(tip_am){};
 
