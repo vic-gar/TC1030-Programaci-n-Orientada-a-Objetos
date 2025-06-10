@@ -22,7 +22,7 @@ class Historial {
   private:
     Paciente** pacientes; //Arreglo de punteros a objetos Paciente
     int nPacientes; //Máximo de pacientes posibles
-    int contador; //Contador para el numero de pacientes actuales en el histroial
+    int contador;//Contador para el numero de pacientes actuales en el histroial
 
   public:
     Historial(int np);
@@ -53,9 +53,9 @@ Historial::Historial(int np): nPacientes(np), contador(0){
 void Historial::creaPacientesEjemplos(){
   pacientes[contador] = new Normal("Jose Miguel", 37, 73.3, 1.75, 73, 69);
   contador++;
-  pacientes[contador] = new Edema("Josefina", 48, 68.1, 1.62, 68, 72, "Raiz Pierna");
+  pacientes[contador] = new Edema("Josefina",48,68.1,1.62,68,72,"Raiz Pierna");
   contador++;
-  pacientes[contador] = new Amputacion("Guadalupe", 62, 55.8, 1.52, 50, 55, "Pierna");
+  pacientes[contador] = new Amputacion("Guadalupe",62,55.8,1.52,50,55,"Pierna");
   contador++;
 }
 
@@ -66,10 +66,11 @@ void Historial::creaPacientesEjemplos(){
  */
 void Historial::agregaPaciente(Paciente* paciente){
   if (contador < nPacientes){
-    pacientes[contador] = paciente;//Se agrega el puntero del paciente al arreglo
+    pacientes[contador] =paciente;//Se agrega el puntero del paciente al arreglo
     contador++;
   } else {
-    std::cout << "Llegaste al limite de Pacientes disponibles. Para continuar necesitas la version Pro" << std::endl;
+    std::cout << "Llegaste al limite de Pacientes disponibles." << std::endl;
+    std::cout << "Para continuar, descarga la version Pro." << std::endl;
   }
 }
 
