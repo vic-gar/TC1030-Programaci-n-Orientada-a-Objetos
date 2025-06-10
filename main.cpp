@@ -24,28 +24,121 @@
 #include "Paciente.h" // Objetos de mi proyecto
 #include "Historial.h"
 
+void menu(){
+    std::cout << "\n================= Menu =================\n" << std::endl;
+    std::cout << "1. Agregar un Paciente \n" << std::endl;
+    std::cout << "2. Mostrar Historial Clinico \n" << std::endl;
+    std::cout << "3. Mostrar Indices de Masa Corporal \n" << std::endl;
+    std::cout << "4. Mostrar Indices Cintura Cadera \n" << std::endl;
+    std::cout << "5. Salir \n" << std::endl;
+}
+
 int main(){
-  Historial historial(6); //Declaramos un historial con capacidad de 6 pacientes
+  Historial historial(10);//Declaramos un historial con capacidad de 10
+
+  std::string nombre;
+  int edad;
+  float peso;
+  float altura;
+  float cintura;
+  float cadera;
+  std::string tipo_edema;
+  std::string tipo_ampu;
 
   //Creación de objetos ejemplo para el programa
   historial.creaPacientesEjemplos();
 
-  //Agregamos pacientes al Historial. Creación dinámica de objetos de diferentes tipos
-  Paciente* normal2 = new Normal("Victor", 20, 68.2, 1.78, 69, 72);
-  Paciente* edema2 = new Edema("Jorge", 53, 85, 1.83, 88, 92, "Tobillo");
-  Paciente* amputacion2 = new Amputacion("Jessica", 37, 67, 1.63, 52, 60, "Pierna");
+  int opcion = 0;
+  //Ciclo para desplegar el menú de los metodos hasta que el usuario desee salir
+  while(opcion < 5 && opcion >= 0){
+    //Se imprime el menú
+    menu();
+    //Pide al usuario la opción que desea ejecutar
+    std::cin >> opcion;
 
-  // Agregamos pacientes al historial
-  historial.agregaPaciente(normal2);
-  historial.agregaPaciente(edema2);
-  historial.agregaPaciente(amputacion2);
+    if(opcion == 1){
+      int tipo;
+      std::cout << "¿Que tipo de Paciente es? (solo numero)\n" << std::endl;
+      std::cout << "1.Regular  2.Edema  3.Amputacion" << std::endl;
+      std::cin >> tipo;
 
-  //Mostramos a las personas en el historial
-  historial.mostrarPacientes();
-
-  //Mostramos los indices de cada paciente que se encuentra en el historial
-  historial.mostrarIMC();
-  historial.mostrarICC();
-
+      if (tipo == 1){
+        std::cout << "\nNombre del Paciente: " << std::endl;
+        std::cin.ignore();
+        std::getline(std::cin, nombre);
+        std::cout << "\nEdad del Paciente: " << std::endl;
+        std::cin >> edad;
+        std::cout << "\nPeso del Paciente (kg): " << std::endl;
+        std::cin >> peso;
+        std::cout << "\nAltura del Paciente (m): " << std::endl;
+        std::cin >> altura;
+        std::cout << "\nCintura del paciente (cm): " << std::endl;
+        std::cin >> cintura;
+        std::cout << "\nCadera del paciente (cm): " << std::endl;
+        std::cin >> cadera;
+        Paciente*n = new Normal(nombre, edad, peso, altura, cintura, cadera);
+        historial.agregaPaciente(n);
+      }
+      else if(tipo == 2){
+        std::cout << "\nNombre del Paciente: " << std::endl;
+        std::cin.ignore();
+        std::getline(std::cin, nombre);
+        std::cout << "\nEdad del Paciente: " << std::endl;
+        std::cin >> edad;
+        std::cout << "\nPeso del Paciente (kg): " << std::endl;
+        std::cin >> peso;
+        std::cout << "\nAltura del Paciente (m): " << std::endl;
+        std::cin >> altura;
+        std::cout << "\nCintura del paciente (cm): " << std::endl;
+        std::cin >> cintura;
+        std::cout << "\nCadera del paciente (cm): " << std::endl;
+        std::cin >> cadera;
+        std::cout << "\nTipo de Edema del paciente: " << std::endl;
+        std::cout <<"Tobillo // Rodilla // Raiz Pierna // Anasarca"<<std::endl;
+        std::cin.ignore();
+        std::getline(std::cin, tipo_edema);
+        Paciente*e = new Edema(nombre, edad, peso, altura, cintura, cadera, 
+          tipo_edema);
+        historial.agregaPaciente(e);
+      } 
+      else if(tipo == 3) {
+        std::cout << "\nNombre del Paciente: " << std::endl;
+        std::cin.ignore();
+        std::getline(std::cin, nombre);
+        std::cout << "\nEdad del Paciente: " << std::endl;
+        std::cin >> edad;
+        std::cout << "\nPeso del Paciente (kg): " << std::endl;
+        std::cin >> peso;
+        std::cout << "\nAltura del Paciente (m): " << std::endl;
+        std::cin >> altura;
+        std::cout << "\nCintura del paciente (cm): " << std::endl;
+        std::cin >> cintura;
+        std::cout << "\nCadera del paciente (cm): " << std::endl;
+        std::cin >> cadera;
+        std::cout << "\nTipo de Amputacion del paciente: " << std::endl;
+        std::cout <<"Rodilla // Pierna // Antebrazo // Brazo" << std::endl;
+        std::cin.ignore();
+        std::getline(std::cin, tipo_ampu);
+        Paciente*a = new Amputacion(nombre, edad, peso, altura, cintura, cadera, 
+          tipo_ampu);
+        historial.agregaPaciente(a);
+      }
+    }
+    else if(opcion == 2){
+      historial.mostrarPacientes();
+    }
+    else if(opcion == 3){
+      historial.mostrarIMC();
+    }
+    else if(opcion == 4){
+      historial.mostrarICC();
+    }
+    else if(opcion == 5){
+      break;
+    }
+    else {
+      std::cout << "\nEntrada invalida, intenta de nuevo.\n" << std::endl;
+    }
+  }
   return 0;
 }
