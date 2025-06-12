@@ -5,7 +5,8 @@ El proyecto busca ser una plataforma que ayude a un profesional en nutrición a 
 ## Función 
 El programa permite agregar nuevos pacientes y color sus datos, así como calcular su ínice de masa corporal y su índice cintura cadera. Dando los datos para la interpretación del profesional de una forma más eficiente. 
 
-Para generar un nuevo Paciente se indica en el menú, ingresas los datos requeridos y se almacena en tu historial clínico. Ejemplo de ejecución: 
+Para generar un nuevo Paciente se indica en el menú, ingresas los datos requeridos y se almacena en tu historial clínico. Ejemplo de ejecución:
+
 Nombre del Paciente:\
 Victor\
 Edad del Paciente:\
@@ -20,7 +21,7 @@ Cadera del paciente (cm):\
 70\
 Tipo de Edema del paciente (Con mayúscula):\
 Tobillo // Rodilla // Raiz Pierna // Anasarca\
-Tobillo\
+Tobillo
 
 Diagrama de Clases del Proyecto: 
 
