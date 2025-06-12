@@ -93,7 +93,7 @@ int main(){
         std::cin >> cintura;
         std::cout << "\nCadera del paciente (cm): " << std::endl;
         std::cin >> cadera;
-        std::cout << "\nTipo de Edema del paciente: " << std::endl;
+        std::cout <<"\nTipo de Edema del paciente (con mayuscula): "<<std::endl;
         std::cout <<"Tobillo // Rodilla // Raiz Pierna // Anasarca"<<std::endl;
         std::cin.ignore();
         std::getline(std::cin, tipo_edema);
@@ -115,7 +115,7 @@ int main(){
         std::cin >> cintura;
         std::cout << "\nCadera del paciente (cm): " << std::endl;
         std::cin >> cadera;
-        std::cout << "\nTipo de Amputacion del paciente: " << std::endl;
+        std::cout<<"\nTipo de Amputacion del paciente (con mayuscula): "<< std::endl;
         std::cout <<"Rodilla // Pierna // Antebrazo // Brazo" << std::endl;
         std::cin.ignore();
         std::getline(std::cin, tipo_ampu);
