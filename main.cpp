@@ -122,6 +122,8 @@ int main(){
         Paciente*a = new Amputacion(nombre, edad, peso, altura, cintura, cadera, 
           tipo_ampu);
         historial.agregaPaciente(a);
+      }else{
+        std::cout << "Entrada invalida. Intenta de nuevo." << std::endl;
       }
     }
     else if(opcion == 2){
